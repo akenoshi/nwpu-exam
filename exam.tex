@@ -1,0 +1,177 @@
+\documentclass[12pt,answers]{exam}
+
+\usepackage{ctex} %%中文字体设置
+
+%%----------------------页面大小设置--------------------------
+\usepackage{geometry}
+\geometry{%
+	paperwidth=18.5cm,
+	paperheight=26cm,
+	top=2.5cm,
+	bottom=2.2cm,
+	left=2cm,
+	right=2cm,
+}
+
+%%----------------------表格排版----------------------------
+\usepackage{array}
+
+
+%%---------------------线框水印------------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+\usepackage{tikz}
+\usepackage{eso-pic}
+%%---------------------首页线框------------------------------
+
+\newcommand{\thiswatermark}[3]{\AddToShipoutPictureBG*{ 
+		\parbox[b][\paperheight]{\paperwidth}{
+			\begin{tikzpicture}
+				\node (x) at (0cm,0cm) {};%定位用
+				\draw[dashed,very thick](1.5cm,20.2cm) rectangle (16.5cm,23.5cm);
+				\draw[thick] (1.5cm,1.7cm) rectangle (16.45cm,14.3cm);
+				\draw (1.5cm,13.6cm) -- (16.45cm,13.6cm);
+				\node (a) at (3cm,13.94cm) {考\ 生\ 班\ 级};
+				\node (b) at (8cm,13.94cm) {学\ \ 号};
+				\node (c) at (12.8cm,13.94cm) {姓\ \ 名};
+				\draw (4.35cm,13.6cm)--(4.35cm,14.3cm);
+				\draw (6.75cm,13.6cm)--(6.75cm,14.3cm);
+				\draw (9.1cm,13.6cm)--(9.1cm,14.3cm);
+				\draw (11.6cm,13.6cm)--(11.6cm,14.3cm);
+				\draw (14cm,13.6cm)--(14cm,14.3cm);
+			\end{tikzpicture}
+
+		}
+		}
+		}
+
+%%-----------------------其余页线框--------------------------
+
+\newcommand{\watermark}[3]{\AddToShipoutPictureBG{ 
+		\parbox[b][\paperheight]{\paperwidth}{
+			\begin{tikzpicture}
+				\node (x) at (0cm,0cm) {};%定位用
+				\draw[thick] (1.5cm,1.7cm) rectangle (16.45cm,23.89cm);
+			\end{tikzpicture}
+			
+		}
+	}
+}
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+
+
+
+%%--------------------页眉页脚------------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+\pagestyle{headandfoot} %% 源自exam宏包参数
+\runningheadrule
+\firstpageheader{}{}{}
+\runningheader{}{西北工业大学命题专用纸}{}
+\firstpagefooter{\fontsize{10pt}{10pt}\selectfont \vspace{-0.8cm}注：1. 命题纸上一般不留答题位置，试题请用小四、宋体打印且不出框。\\ \hspace{0.7cm}2. 命题教师和审题教师姓名应在试卷存档时填写。}{}{\fontsize{10pt}{10pt}\selectfont　共\numpages 页，第\thepage 页}
+\runningfooter{\fontsize{10pt}{10pt}\selectfont \vspace{-0.65cm}教务处印制}{}{\fontsize{10pt}{10pt}\selectfont \vspace{-0.65cm} 共\numpages 页，第\thepage 页}
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+
+
+
+%%---------------------折线不换行---------------------------
+\usepackage{ulem}
+\usepackage{CJKulem}
+\ExplSyntaxOn
+\RenewDocumentCommand{\fillin}{m}{\tl_map_inline:nn{#1}{\uline{##1}\hspace{0cm}}}
+\ExplSyntaxOff%%不换行问题并未完全解决
+
+
+%%-----------------------正文开始---------------------------
+%%----------------------------------------------------------
+%%----------------------------------------------------------
+\begin{document}
+	
+%%-----------------------封面内容---------------------------
+	\thiswatermark{}{}{} %调用首页水印背景
+	\clearpage
+
+	\begin{center}
+		\fontsize{12pt}{12pt}\selectfont 诚信保证
+	\end{center}
+	
+	\vspace{-0.5cm}
+	\par \fontsize{12pt}{18pt}\selectfont 本人知晓我校考场规则和违纪处分条例的有关规定，保证遵守考场规则，诚实做人。\hspace{8.5cm} 本人签字：\underline{\makebox[2cm]{}}
+	
+	\noindent 编号：\underline{\makebox[1.8cm]{}}
+	
+	\begin{center}  
+		\fontsize{18pt}{26pt}\selectfont 西北工业大学考试试题（卷）\\
+		
+		\fontsize{12pt}{18pt}\selectfont 20\ \ -20 \ \ 学年第\ \ \ 学期
+	\end{center}
+	\vspace{-0.5cm}
+	\noindent 开课学院\underline{\makebox[3.4cm]{}} \hspace{0.9cm} 课程\underline{\makebox[3.4cm]{}} \hspace{0.9cm}  学时\underline{\makebox[2cm]{}}
+	
+	\noindent 考试日期\underline{\makebox[2cm]{}} \hspace{0.35cm} 考试时间 \underline{\makebox[2cm]{}}小时  \hspace{0.35cm} 考试形式(开/闭)(A/B)卷
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|>{\centering\hspace{0pt}}m{0.1\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\hspace{0pt}}m{0.075\linewidth}|>{\centering\arraybackslash\hspace{0pt}}m{0.1\linewidth}|} 
+			\hline
+			题号 & 一 & 二 & 三 & 四 & 五 & 六 & 七 & 总分  \\ 
+			\hline
+			得分 &   &   &   &   &   &   &   &     \\
+			\hline
+		\end{tabular}
+	\end{table} 
+
+
+%%----------------------试题正文开始------------------------
+%%----------------------------------------------------------
+	
+	\begin{questions}
+		\question 同非金属相比，金属的主要特性是\fillin[导电性]
+		\question 材料受拉时所能承受的最大应力叫\fillin[抗拉强度]，符号是\fillin[$R_m$]，单位是\fillin[$N/mm^2$]。
+		\question 材料抵抗冲击载荷作用的能力用\fillin[冲击吸收能量]来表示，符号是\fillin[K]，单位是\fillin[J]。
+		\question 直径为10mm的硬质合金球，在9800N(1000kgf)的载荷下保持30s时测得布氏硬度值为260，布氏硬度值标记为\fillin[260HBW10/1000/30]。
+		\question 材料在常温下抵抗氧、水蒸气及其他化学介质腐蚀破坏作用的能力称为\fillin[耐腐蚀性]，碳钢、铸铁的耐腐蚀性较\fillin[差]，钛、不锈钢的耐腐蚀性\fillin[好]。
+		\question 离子键中很难产生可以自由运动的电子，所以离子晶体都是良好的 \fillin[绝缘体]。
+		\question 正的电阻温度系数指的是随温度升高材料的电阻率\fillin[增大]。
+		
+		
+%%--------------------此处正文前后手动调节--------------------
+%%----------------------------------------------------------
+	\newpage
+	\watermark{}{}{}	
+		
+		\question 氢键是一种较强的、有方向性的\fillin[范德瓦耳斯]键。
+		\question 原子之间形成分子或晶体时，以共用价电子形成稳定的电子满壳层的方式实现结合。这种结合键叫做\fillin[共价键]。
+		\question $\alpha $-Fe的晶格中的配位数是\fillin[8]。
+		\question 金属中晶界越多，晶粒越细，金属的强度越\fillin[高]，同时塑性越\fillin[好]。
+		\question 间隙固溶体都是\fillin[有限]固溶体，并且一定是\fillin[无序]固溶体。无限固溶体和有序固溶体一定是\fillin[置换]固溶体。
+		\question 不遵守化合价规律但符合一定电子浓度的化合物叫做\fillin[电子化合物]。一定电子浓度的化合物相应有确定的\fillin[晶体结构]。
+		\question 密排六方晶格中{0001}面上的原子密度与\fillin[面心立方晶格中的$\left\{111\right\} $]的原子密度相同。
+		\question 液体中大于临界晶核尺寸的短程有序原子集团成为结晶核心。这种从液体结构内部由金属本身原子自发长出的结晶核心叫做\fillin[自发形核]。
+		\question 以不同晶体结构存在的同一种金属的晶体称为该金属的\fillin[同素异构晶体]。
+		\question 金属结晶时单向散热，有利于\fillin[柱状]晶的生成。
+		\question 制备单晶的基本要求是液体结晶时只存在一个\fillin[晶核]。
+		\question 固溶体结晶是一个\fillin[变]温结晶过程。
+		\question 固溶体出现枝晶偏析后，可用\fillin[扩散退火]加以消除。
+		\question 一个合金发生共晶反应，液相L生成共晶体\fillin[$\alpha +\beta$]，共晶反应的特点是反应时\fillin[三相]共存，反应在\fillin[恒温]下平衡地进行。
+		\question 一个合金发生三相反应，反应式是$L+\alpha \rightarrow \beta $。该反应叫做\fillin[包晶]反应。
+		\question 在铁碳合金室温平衡组织中，含$Fe_3C_{II}$最多的合金成分点为\fillin[E]点。
+		\question 用显微镜观察某亚共析钢，若估算其中的珠光体面积分数为70$\%$，则此钢的碳的质量分数约为\fillin[0.55$\%$]。
+		\question 过共析钢室温平衡组织是\fillin[P+$Fe_3C_{II}$]。
+		\question 60钢室温平衡组织中珠光体的质量分数是\fillin[77$\%$]。
+		\question 滑移的本质是\fillin[晶体内部位错在切应力作用下的运动]。
+		\question 在金属的再结晶温度以下的塑性变形加工称为\fillin[冷]加工，它会产生\fillin[加工硬化]的现象。
+		\question 合金中的第二相硬质点成为\fillin[位错移动]的障碍物，产生第二相强化。
+		\question 沿着浓度降低的方向进行的扩散，使浓度趋于均匀化。这种扩散叫做\fillin[下坡扩散]。
+		\question 通过扩散原子与空位交换位置来实现物质的宏观迁移。这种扩散叫做\fillin[空位扩散]。
+		\question 通过扩散，使固溶体内溶质组元浓度超过固溶度极限而不断形成新相的过程。这种扩散叫做\fillin[反应扩散]。
+	\end{questions}
+
+
+
+
+\end{document}
